@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Details</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+  <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href=" https://fonts.googleapis.com/css?family=Lora">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="static/css/styles.min.css">
+</head>
+<body>
+
+<div class="container">
+  
+  <div>
+        <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+            <div class="container">
+              <a class="navbar-brand" href="#">Feedback Detailer</a>
+              <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1">
+                <span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+              </button>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav mr-auto"></ul>
+                    <span class="navbar-text actions"> <a href="#" class="login">Nikhil Teja</a>
+                      <a href="https://www.linkedin.com/in/nikhiltejaprofile/"><img src="static/img/linkedin.png" style="height: 30px;width: 30px;"></a>
+                      <a href="https://github.com/nikhilteja824"><img src="static/img/cat.png" style="height: 30px;width: 30px;"></a>
+                      </span>
+                    </div>
+            </div>
+        </nav>
+    </div><hr>
+    <br><br>
+    <div class="row">
+      <div class="col-sm-4">
+        
+      </div>
+      <div class="col-sm-4">
+          <h4>Fill the Details below</h4>
+            <!-- <p>The form below will store the details in your AWS RDS MySQL Workbench</p> -->
+            <form action="/insert" method="POST">
+              <div class="form-group">
+                <label for="num">ID:</label>
+                <input name="num" type="number" class="form-control" id="num">
+              </div>
+              <div class="form-group">
+                <label for="usr">Name:</label>
+                <input name="name" type="text" class="form-control" id="usr">
+              </div>
+              <div class="form-group">
+                <label for="phn">Phone Number:</label>
+                <input name="phn" type="number" class="form-control" id="phn">
+              </div>
+              <div class="form-group">
+                <label for="pwd">Email:</label>
+                <input name="email" type="email" class="form-control" id="pwd">
+              </div>
+              
+              <div class="radio">
+                <label>Gender:</label><br>
+                <label class="radio-inline"><input type="radio" name="optradio" value="Male">Male</label>
+              </div>
+              <div class="radio">
+                <label class="radio-inline"><input type="radio" name="optradio" value="Female">Female</label>
+              </div>
+               
+
+              <div class="form-group">
+                <label for="fb">Feedback:</label>
+                <textarea class="form-control" rows="5" id="fb" name="fb"></textarea>
+              </div>
+               
+              <br>
+              <input type="submit" name="submit" value="Submit" class="btn btn-success">
+            </form>
+      </div>
+    </div>
+    <hr>
+
+    
+     
+    <h4> Customer FeedBack Details</h4>
+       <!-- {{var}} -->
+       <table border=1>
+        <tr>
+          
+          <th >Id</th>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Gender</th>
+          <th>Feedback</th>
+        </tr>
+        {% for detail in details %}
+          <tr>
+          {% for i in detail %}
+           <td>{{i}}</td>
+          {% endfor %}
+         </tr>
+        
+        {% endfor %}  
+        </table>
+     
+    <br>
+    <br>
+    <hr>
+</div>
+
+</body>
+</html>
